@@ -8,9 +8,10 @@ const Button = styled.button`
 `;
 
 interface IPuzletileProps {
-  text: number;
+  tileNumber: number;
+  onClick: () => void;
 }
 
-export const PuzzleTile = ({ text }: IPuzletileProps) => {
-  return <Button>{text}</Button>;
+export const PuzzleTile = ({ tileNumber, onClick }: IPuzletileProps) => {
+  return <Button onClick={onClick}>{tileNumber}</Button>;
 };
