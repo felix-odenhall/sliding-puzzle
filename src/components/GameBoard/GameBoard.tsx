@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { board } from "../../constants/gameData";
 
@@ -24,10 +24,11 @@ export const GameBoard = () => {
     <SGameboard>
       {puzzleBoard.map((rows, rowIndex) => {
         return (
-          <>
+          <React.Fragment key={rowIndex}>
             {rows.map((value, colIndex) => {
               return (
                 <button
+                  key={value}
                   onClick={() => {
                     handleClickedTile(rowIndex, colIndex, value);
                   }}
@@ -36,7 +37,7 @@ export const GameBoard = () => {
                 </button>
               );
             })}
-          </>
+          </React.Fragment>
         );
       })}
     </SGameboard>
