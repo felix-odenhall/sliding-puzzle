@@ -11,13 +11,30 @@ const SGameboard = styled.div`
 
 export const GameBoard = () => {
   const [puzzleBoard, setPuzzleBoard] = useState(board);
+
+  const handleClickedTile = (
+    rowIndex: number,
+    colIndex: number,
+    value: number
+  ) => {
+    console.log(rowIndex, colIndex, value);
+  };
+
   return (
     <SGameboard>
-      {puzzleBoard.map((rows) => {
+      {puzzleBoard.map((rows, rowIndex) => {
         return (
           <>
-            {rows.map((columns) => {
-              return <button>{columns}</button>;
+            {rows.map((value, colIndex) => {
+              return (
+                <button
+                  onClick={() => {
+                    handleClickedTile(rowIndex, colIndex, value);
+                  }}
+                >
+                  {value}
+                </button>
+              );
             })}
           </>
         );
