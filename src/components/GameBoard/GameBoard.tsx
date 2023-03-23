@@ -20,19 +20,29 @@ export const GameBoard = () => {
     topTile: number | null,
     bottomTile: number | null,
     leftTile: number | null,
-    rightTile: number | null
+    rightTile: number | null,
+    rowIndex: number,
+    colIndex: number
   ) => {
     if (topTile === 0) {
-      console.log("can move up");
+      puzzleBoard[rowIndex - 1][colIndex] = puzzleBoard[rowIndex][colIndex];
+      puzzleBoard[rowIndex][colIndex] = 0;
+      setPuzzleBoard([...puzzleBoard]);
     }
     if (bottomTile === 0) {
-      console.log("can move down");
+      puzzleBoard[rowIndex + 1][colIndex] = puzzleBoard[rowIndex][colIndex];
+      puzzleBoard[rowIndex][colIndex] = 0;
+      setPuzzleBoard([...puzzleBoard]);
     }
     if (leftTile === 0) {
-      console.log("can move left");
+      puzzleBoard[rowIndex][colIndex - 1] = puzzleBoard[rowIndex][colIndex];
+      puzzleBoard[rowIndex][colIndex] = 0;
+      setPuzzleBoard([...puzzleBoard]);
     }
     if (rightTile === 0) {
-      console.log("can move right");
+      puzzleBoard[rowIndex][colIndex + 1] = puzzleBoard[rowIndex][colIndex];
+      puzzleBoard[rowIndex][colIndex] = 0;
+      setPuzzleBoard([...puzzleBoard]);
     }
   };
 
@@ -50,14 +60,17 @@ export const GameBoard = () => {
         ? puzzleBoard[rowIndex][colIndex + 1]
         : null;
 
-    canMove(checkTopTile, checkBottomTile, checkLeftTile, checkRightTile);
+    canMove(
+      checkTopTile,
+      checkBottomTile,
+      checkLeftTile,
+      checkRightTile,
+      rowIndex,
+      colIndex
+    );
   };
 
-  const handleClickedTile = (
-    rowIndex: number,
-    colIndex: number,
-    value: number
-  ) => {
+  const handleClickedTile = (rowIndex: number, colIndex: number) => {
     checkNeighbourTile(rowIndex, colIndex);
   };
 
@@ -72,7 +85,7 @@ export const GameBoard = () => {
                   key={value}
                   value={value}
                   onClick={() => {
-                    handleClickedTile(rowIndex, colIndex, value);
+                    handleClickedTile(rowIndex, colIndex);
                   }}
                 >
                   {value !== 0 && value}
