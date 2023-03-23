@@ -9,6 +9,10 @@ const SGameboard = styled.div`
   gap: 2px;
 `;
 
+const SPuzzleTile = styled.button<{ value: number }>`
+  background-color: ${({ value }) => (value !== 0 ? "red" : "grey")};
+`;
+
 export const GameBoard = () => {
   const [puzzleBoard, setPuzzleBoard] = useState(board);
 
@@ -17,7 +21,7 @@ export const GameBoard = () => {
     colIndex: number,
     value: number
   ) => {
-    console.log(rowIndex, colIndex, value);
+    console.log("position:", rowIndex, colIndex, "value:", value);
   };
 
   return (
@@ -27,14 +31,15 @@ export const GameBoard = () => {
           <React.Fragment key={rowIndex}>
             {rows.map((value, colIndex) => {
               return (
-                <button
+                <SPuzzleTile
                   key={value}
+                  value={value}
                   onClick={() => {
                     handleClickedTile(rowIndex, colIndex, value);
                   }}
                 >
-                  {value}
-                </button>
+                  {value !== 0 && value}
+                </SPuzzleTile>
               );
             })}
           </React.Fragment>
