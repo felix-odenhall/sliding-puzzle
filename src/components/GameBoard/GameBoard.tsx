@@ -16,12 +16,31 @@ const SPuzzleTile = styled.button<{ value: number }>`
 export const GameBoard = () => {
   const [puzzleBoard, setPuzzleBoard] = useState(board);
 
+  const checkNeighbourTile = (rowIndex: number, colIndex: number) => {
+    const checkTopTile =
+      rowIndex > 0 ? puzzleBoard[rowIndex - 1][colIndex] : null;
+    const checkBottomTile =
+      rowIndex < puzzleBoard.length - 1
+        ? puzzleBoard[rowIndex + 1][colIndex]
+        : null;
+    const checkLeftTile =
+      colIndex > 0 ? puzzleBoard[rowIndex][colIndex - 1] : null;
+    const checkRightTile =
+      colIndex < puzzleBoard.length - 1
+        ? puzzleBoard[rowIndex][colIndex + 1]
+        : null;
+    console.log("top tile", checkTopTile);
+    console.log("bottom tile", checkBottomTile);
+    console.log("left tile", checkLeftTile);
+    console.log("right tile", checkRightTile);
+  };
+
   const handleClickedTile = (
     rowIndex: number,
     colIndex: number,
     value: number
   ) => {
-    console.log("position:", rowIndex, colIndex, "value:", value);
+    checkNeighbourTile(rowIndex, colIndex);
   };
 
   return (
