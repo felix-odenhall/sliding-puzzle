@@ -7,9 +7,9 @@ import {
 } from "../../constants/gameData";
 
 import {
+  checkIfSolved,
   checkNeighbourTile,
   createPuzzle,
-  puzzleSolution,
 } from "../../utils/index";
 
 const SContainer = styled.div`
@@ -47,6 +47,7 @@ export const GameBoard = () => {
 
   const handleClickedTile = (rowIndex: number, colIndex: number) => {
     checkNeighbourTile(rowIndex, colIndex, puzzleBoard, setPuzzleBoard);
+    checkIfSolved(puzzleBoard);
   };
 
   return (
