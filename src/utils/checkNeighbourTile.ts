@@ -1,4 +1,4 @@
-import { canMove } from "./canMove";
+import { canMove } from "./index";
 
 export const checkNeighbourTile = (
   rowIndex: number,
