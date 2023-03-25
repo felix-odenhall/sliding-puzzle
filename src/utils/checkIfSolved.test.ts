@@ -72,7 +72,7 @@ describe("Check if a puzzle is solved", () => {
       checkIfSolved(testArray, puzzleSolution(rows, columns), rows, columns)
     ).toEqual(false);
   });
-  test("Should be false if numbers are not in incremental order, even though starting at 1 and ending with 0", () => {
+  test("Should be false if the numbers are not in incremental order, even though starting at 1 and ending with 0", () => {
     const rows = 3;
     const columns = 3;
     const testArray = [

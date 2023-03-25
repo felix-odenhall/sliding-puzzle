@@ -6,7 +6,7 @@ describe("ShuffleArray", () => {
     expect(shuffledArr.length).toEqual(createPuzzle(3, 3).length);
   });
 
-  test("Should include number 0 -> 8", () => {
+  test("Should include integers 0 -> 8", () => {
     const shuffledArr = shuffleArray(createPuzzle(3, 3)).flat();
     const testArr = [
       [0, 1, 2],
@@ -16,7 +16,7 @@ describe("ShuffleArray", () => {
     expect(shuffledArr).toEqual(expect.arrayContaining(testArr));
   });
 
-  test("Should include number 0 -> 17", () => {
+  test("Should include integers 0 -> 17", () => {
     const shuffledArr = shuffleArray(createPuzzle(6, 3)).flat();
     const testArr = [
       [0, 1, 2],
