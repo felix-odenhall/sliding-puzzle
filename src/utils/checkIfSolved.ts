@@ -1,8 +1,17 @@
 import { puzzleSolution } from "./index";
-import { initialColumns, initialRows } from "../constants/gameData";
 
-export const checkIfSolved = (arr: number[][]) => {
-  if (arr.flat().toString() === puzzleSolution(initialRows, initialColumns)) {
-    console.log("win");
-  }
+export const checkIfSolved = (
+  arr: number[][],
+  solutionArray: number[],
+  rows: number,
+  columns: number
+) => {
+  const flattenArray = arr.flat();
+
+  solutionArray = puzzleSolution(rows, columns);
+
+  return (
+    flattenArray.length === solutionArray.length &&
+    flattenArray.every((value, index) => value === solutionArray[index])
+  );
 };
