@@ -11,6 +11,7 @@ import {
   createPuzzle,
   checkIfSolved,
   puzzleSolution,
+  shuffleArray,
 } from "../../utils/index";
 
 const SContainer = styled.div`
@@ -43,13 +44,19 @@ const SPuzzleTile = styled.button<{ value: number }>`
 
 export const GameBoard = () => {
   const [puzzleBoard, setPuzzleBoard] = useState(
-    createPuzzle(initialRows, initialColumns)
+    shuffleArray(createPuzzle(initialRows, initialColumns))
   );
   const [isSolved, setIsSolved] = useState<boolean>(false);
 
   const handleClickedTile = (rowIndex: number, colIndex: number) => {
-    checkNeighbourTile(rowIndex, colIndex, puzzleBoard, setPuzzleBoard);
-
+    const emptyTile = checkNeighbourTile(rowIndex, colIndex, puzzleBoard);
+    if (emptyTile) {
+      const newBoard = [...puzzleBoard];
+      newBoard[emptyTile.emptyRow][emptyTile.emptyCol] =
+        puzzleBoard[rowIndex][colIndex];
+      newBoard[rowIndex][colIndex] = 0;
+      setPuzzleBoard(newBoard);
+    }
     checkIfSolved(
       puzzleBoard,
       puzzleSolution(initialRows, initialColumns),
