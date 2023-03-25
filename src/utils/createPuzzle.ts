@@ -1,3 +1,5 @@
+import { shuffleArray } from "./index";
+
 export const createPuzzle = (initialRows: number, initialColumns: number) => {
   const puzzleBoard: number[][] = [];
   for (let rowIndex = 0; rowIndex < initialRows; rowIndex++) {
@@ -7,5 +9,5 @@ export const createPuzzle = (initialRows: number, initialColumns: number) => {
     }
     puzzleBoard.push(row);
   }
-  return puzzleBoard;
+  return shuffleArray(puzzleBoard);
 };
