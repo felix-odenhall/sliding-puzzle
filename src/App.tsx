@@ -1,11 +1,16 @@
-import "./App.css";
+import styled from "styled-components";
 import { GameBoard } from "./components";
+import "./index.css";
+
+const SContainer = styled.div`
+  height: 90vh;
+`;
 
 function App() {
   return (
-    <div className="App">
+    <SContainer>
       <GameBoard />
-    </div>
+    </SContainer>
   );
 }
 

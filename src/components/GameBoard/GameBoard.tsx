@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import {
   initialColumns,
@@ -13,33 +13,33 @@ import {
   puzzleSolution,
   shuffleArray,
 } from "../../utils/index";
+import { Button, PuzzleTile } from "../index";
 
 const SContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 80vh;
 `;
 
-const SGameboard = styled.div`
-  display: grid;
-  grid-template-rows: repeat(${initialRows}, 1fr);
-  grid-template-columns: repeat(${initialColumns}, 1fr);
-  width: calc(${initialColumns} * ${tile_size});
-  max-width: 100%;
-  gap: 1px;
+const SHeadLine = styled.h1`
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  font-size: 2rem;
 `;
 
-const SPuzzleTile = styled.button<{ value: number }>`
-  background-color: ${({ value }) => (value !== 0 ? "red" : "grey")};
-  width: ${tile_size};
-  height: ${tile_size};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-  font-weight: 700;
+const SGameboard = styled.div`
+  display: grid;
+  background-color: gray;
+  grid-template-rows: repeat(${initialRows}, 1fr);
+  grid-template-columns: repeat(${initialColumns}, 1fr);
+  width: calc(${initialColumns} * ${tile_size} +4px);
+  max-width: 100%;
+  gap: 2px;
+  padding: 5px;
 `;
 
 export const GameBoard = () => {
@@ -65,30 +65,47 @@ export const GameBoard = () => {
     ) && setIsSolved(true);
   };
 
+  const shuffleNewBoard = () => {
+    setIsSolved(false);
+    setPuzzleBoard(shuffleArray(createPuzzle(initialRows, initialColumns)));
+  };
+
+  useEffect(() => {
+    setPuzzleBoard(shuffleArray(createPuzzle(initialRows, initialColumns)));
+    setIsSolved(false);
+  }, []);
+
   return (
     <SContainer>
-      {isSolved && <p>Winner!</p>}
-      <SGameboard>
-        {puzzleBoard.map((rows, rowIndex) => {
-          return (
-            <React.Fragment key={rowIndex}>
-              {rows.map((value, colIndex) => {
-                return (
-                  <SPuzzleTile
-                    key={value}
-                    value={value}
-                    onClick={() => {
-                      handleClickedTile(rowIndex, colIndex);
-                    }}
-                  >
-                    {value !== 0 && value}
-                  </SPuzzleTile>
-                );
-              })}
-            </React.Fragment>
-          );
-        })}
-      </SGameboard>
+      {isSolved ? (
+        <>
+          <SHeadLine>Congratulations! You've completed the puzzle!</SHeadLine>
+          <Button onClick={shuffleNewBoard} text="Restart" />
+        </>
+      ) : (
+        <>
+          <SGameboard>
+            {puzzleBoard.map((rows, rowIndex) => {
+              return (
+                <React.Fragment key={rowIndex}>
+                  {rows.map((value, colIndex) => {
+                    return (
+                      <PuzzleTile
+                        key={value}
+                        value={value}
+                        onClick={() => {
+                          handleClickedTile(rowIndex, colIndex);
+                        }}
+                      />
+                    );
+                  })}
+                </React.Fragment>
+              );
+            })}
+          </SGameboard>
+          <Button onClick={shuffleNewBoard} text="Shuffle a new board" />
+        </>
+      )}
     </SContainer>
   );
 };
