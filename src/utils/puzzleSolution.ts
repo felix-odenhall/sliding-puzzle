@@ -4,5 +4,5 @@ export const puzzleSolution = (initialRows: number, initialColumns: number) => {
     winArr.push(i);
   }
   winArr.push(0);
-  return winArr.toString();
+  return winArr;
 };
