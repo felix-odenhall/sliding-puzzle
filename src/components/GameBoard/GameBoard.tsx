@@ -7,9 +7,10 @@ import {
 } from "../../constants/gameData";
 
 import {
-  checkIfSolved,
   checkNeighbourTile,
   createPuzzle,
+  checkIfSolved,
+  puzzleSolution,
 } from "../../utils/index";
 
 const SContainer = styled.div`
@@ -44,14 +45,22 @@ export const GameBoard = () => {
   const [puzzleBoard, setPuzzleBoard] = useState(
     createPuzzle(initialRows, initialColumns)
   );
+  const [isSolved, setIsSolved] = useState<boolean>(false);
 
   const handleClickedTile = (rowIndex: number, colIndex: number) => {
     checkNeighbourTile(rowIndex, colIndex, puzzleBoard, setPuzzleBoard);
-    checkIfSolved(puzzleBoard);
+
+    checkIfSolved(
+      puzzleBoard,
+      puzzleSolution(initialRows, initialColumns),
+      initialRows,
+      initialColumns
+    ) && setIsSolved(true);
   };
 
   return (
     <SContainer>
+      {isSolved && <p>Winner!</p>}
       <SGameboard>
         {puzzleBoard.map((rows, rowIndex) => {
           return (
