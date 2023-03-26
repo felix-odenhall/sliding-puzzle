@@ -5,13 +5,12 @@ import "./index.css";
 const SContainer = styled.div`
   height: 90vh;
 `;
-
-function App() {
+const App = () => {
   return (
     <SContainer>
       <GameBoard />
     </SContainer>
   );
-}
+};
 
 export default App;
