@@ -3,7 +3,12 @@ import { GameBoard } from "./components";
 import "./index.css";
 
 const SContainer = styled.main`
-  height: 80vh;
+  height: 90vh;
+  width: 100%;
+  overflow: hidden;
+  @media (orientation: landscape) {
+    overflow: visible;
+  }
 `;
 
 const SHeadLine1 = styled.h1`
@@ -11,7 +16,7 @@ const SHeadLine1 = styled.h1`
   font-weight: 700;
   text-align: center;
   font-size: 2rem;
-  margin-top: 50px;
+  margin-top: 30px;
 `;
 
 const App = () => {
