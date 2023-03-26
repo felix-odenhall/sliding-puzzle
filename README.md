@@ -43,3 +43,9 @@ To run the tests, type `npm test`. This will launch the test runner and execute 
 - [x] If the user solves the puzzle, it should be displayed on the screen in some suitable way.
 
 * **Note**: Currently, the implementation only allows **moving one tile at a time**, even if multiple tiles are in the same row or column as the empty space. Therefore, if the user clicks on a tile, only that tile will be moved, even if there are other tiles between it and the empty space.
+
+## Thoughts of improvments:
+- [ ] New design
+- [ ] Add a text to display number of clicks
+- [ ] Keyboard navigation
+- [ ] Button to show information on how to play
