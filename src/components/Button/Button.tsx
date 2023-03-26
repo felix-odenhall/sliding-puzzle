@@ -13,7 +13,7 @@ const SButton = styled.button`
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  margin: 2rem;
+  margin: 60px 0;
   padding: 10px;
   border: none;
 `;

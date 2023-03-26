@@ -21,6 +21,7 @@ const SContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin: 50px 0;
 `;
 
 const SHeadLine2 = styled.h2`
