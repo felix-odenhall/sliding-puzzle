@@ -1,4 +1,4 @@
-import { checkIfSolved, puzzleSolution } from "./index";
+import { checkIfSolved, puzzleSolution } from "../index";
 
 describe("Check if a puzzle is solved", () => {
   test("Should be true if increments from 1 -> 8, ending with 0", () => {

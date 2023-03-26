@@ -7,7 +7,7 @@ import {
 } from "../../constants/gameData";
 
 import {
-  checkNeighbourTile,
+  getEmptyNeighbourTileIndex,
   createPuzzle,
   checkIfSolved,
   puzzleSolution,
@@ -48,7 +48,11 @@ export const GameBoard = () => {
   const [isSolved, setIsSolved] = useState<boolean>(false);
 
   const handleClickedTile = (rowIndex: number, colIndex: number) => {
-    const emptyTile = checkNeighbourTile(rowIndex, colIndex, puzzleBoard);
+    const emptyTile = getEmptyNeighbourTileIndex(
+      rowIndex,
+      colIndex,
+      puzzleBoard
+    );
     if (emptyTile) {
       const newBoard: number[][] = [...puzzleBoard];
       newBoard[emptyTile.emptyRow][emptyTile.emptyCol] =

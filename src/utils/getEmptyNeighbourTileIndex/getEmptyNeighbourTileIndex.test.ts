@@ -1,4 +1,4 @@
-import { checkNeighbourTile } from "./index";
+import { getEmptyNeighbourTileIndex } from "../index";
 
 describe("checkNeighbourTile", () => {
   test("Should return the correct result when the empty tile is above the current tile (7)", () => {
@@ -10,7 +10,7 @@ describe("checkNeighbourTile", () => {
     const rowIndex = 2;
     const colIndex = 1;
     const expectedResult = { emptyRow: 1, emptyCol: 1 };
-    expect(checkNeighbourTile(rowIndex, colIndex, board)).toEqual(
+    expect(getEmptyNeighbourTileIndex(rowIndex, colIndex, board)).toEqual(
       expectedResult
     );
   });
@@ -24,7 +24,7 @@ describe("checkNeighbourTile", () => {
     const rowIndex = 0;
     const colIndex = 0;
     const expectedResult = { emptyRow: 1, emptyCol: 0 };
-    expect(checkNeighbourTile(rowIndex, colIndex, board)).toEqual(
+    expect(getEmptyNeighbourTileIndex(rowIndex, colIndex, board)).toEqual(
       expectedResult
     );
   });
@@ -38,7 +38,7 @@ describe("checkNeighbourTile", () => {
     const rowIndex = 2;
     const colIndex = 2;
     const expectedResult = { emptyRow: 2, emptyCol: 1 };
-    expect(checkNeighbourTile(rowIndex, colIndex, board)).toEqual(
+    expect(getEmptyNeighbourTileIndex(rowIndex, colIndex, board)).toEqual(
       expectedResult
     );
   });
@@ -52,7 +52,7 @@ describe("checkNeighbourTile", () => {
     const rowIndex = 1;
     const colIndex = 1;
     const expectedResult = { emptyRow: 1, emptyCol: 2 };
-    expect(checkNeighbourTile(rowIndex, colIndex, board)).toEqual(
+    expect(getEmptyNeighbourTileIndex(rowIndex, colIndex, board)).toEqual(
       expectedResult
     );
   });
@@ -65,6 +65,6 @@ describe("checkNeighbourTile", () => {
     ];
     const rowIndex = 2;
     const colIndex = 2;
-    expect(checkNeighbourTile(rowIndex, colIndex, board)).toBeNull();
+    expect(getEmptyNeighbourTileIndex(rowIndex, colIndex, board)).toBeNull();
   });
 });

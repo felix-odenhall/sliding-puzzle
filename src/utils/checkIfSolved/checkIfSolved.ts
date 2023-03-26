@@ -1,4 +1,4 @@
-import { puzzleSolution } from "./index";
+import { puzzleSolution } from "../index";
 
 export const checkIfSolved = (
   arr: number[][],

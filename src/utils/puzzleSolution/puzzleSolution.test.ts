@@ -1,4 +1,4 @@
-import { puzzleSolution } from "./index";
+import { puzzleSolution } from "../index";
 
 describe("Create a solution array based on rows & columns", () => {
   const rows = 9;

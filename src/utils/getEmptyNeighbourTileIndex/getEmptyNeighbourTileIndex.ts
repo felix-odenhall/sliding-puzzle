@@ -1,20 +1,23 @@
-export const checkNeighbourTile = (
+export const getEmptyNeighbourTileIndex = (
   rowIndex: number,
   colIndex: number,
   board: number[][]
 ) => {
-  const checkTopTile = rowIndex > 0 ? board[rowIndex - 1][colIndex] : null;
-  const checkBottomTile =
+  // Check the number of a tile above, under, left or right of the clicked tile
+  const checkAboveTile = rowIndex > 0 ? board[rowIndex - 1][colIndex] : null;
+  const checkBelowTile =
     rowIndex < board.length - 1 ? board[rowIndex + 1][colIndex] : null;
   const checkLeftTile = colIndex > 0 ? board[rowIndex][colIndex - 1] : null;
   const checkRightTile =
     colIndex < board[rowIndex].length - 1
       ? board[rowIndex][colIndex + 1]
       : null;
-  if (checkTopTile === 0) {
+
+  // If the tile above, under, left or right of the clicked tile is empty, return its row and column index
+  if (checkAboveTile === 0) {
     return { emptyRow: rowIndex - 1, emptyCol: colIndex };
   }
-  if (checkBottomTile === 0) {
+  if (checkBelowTile === 0) {
     return { emptyRow: rowIndex + 1, emptyCol: colIndex };
   }
   if (checkLeftTile === 0) {

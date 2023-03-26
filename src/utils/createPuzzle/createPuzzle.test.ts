@@ -1,4 +1,4 @@
-import { createPuzzle } from "./index";
+import { createPuzzle } from "../index";
 
 describe("Create a puzzle board, based on rows and columns", () => {
   test("Should have 3 rows", () => {

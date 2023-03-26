@@ -1,4 +1,4 @@
-import { createPuzzle, shuffleArray } from "./index";
+import { createPuzzle, shuffleArray } from "../index";
 
 describe("ShuffleArray", () => {
   test("Should have the same length", () => {
