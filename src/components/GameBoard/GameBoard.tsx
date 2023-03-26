@@ -33,17 +33,16 @@ const SHeadLine = styled.h1`
 
 const SGameboard = styled.div`
   display: grid;
-  background-color: gray;
+  background-color: #d3d3d3;
   grid-template-rows: repeat(${initialRows}, 1fr);
   grid-template-columns: repeat(${initialColumns}, 1fr);
   width: calc(${initialColumns} * ${tile_size} +4px);
   max-width: 100%;
-  gap: 2px;
-  padding: 5px;
+  gap: 1px;
 `;
 
 export const GameBoard = () => {
-  const [puzzleBoard, setPuzzleBoard] = useState(
+  const [puzzleBoard, setPuzzleBoard] = useState<number[][]>(
     shuffleArray(createPuzzle(initialRows, initialColumns))
   );
   const [isSolved, setIsSolved] = useState<boolean>(false);
@@ -51,7 +50,7 @@ export const GameBoard = () => {
   const handleClickedTile = (rowIndex: number, colIndex: number) => {
     const emptyTile = checkNeighbourTile(rowIndex, colIndex, puzzleBoard);
     if (emptyTile) {
-      const newBoard = [...puzzleBoard];
+      const newBoard: number[][] = [...puzzleBoard];
       newBoard[emptyTile.emptyRow][emptyTile.emptyCol] =
         puzzleBoard[rowIndex][colIndex];
       newBoard[rowIndex][colIndex] = 0;
@@ -103,7 +102,7 @@ export const GameBoard = () => {
               );
             })}
           </SGameboard>
-          <Button onClick={shuffleNewBoard} text="Shuffle a new board" />
+          <Button onClick={shuffleNewBoard} text="Shuffle new board" />
         </>
       )}
     </SContainer>

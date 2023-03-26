@@ -8,7 +8,7 @@ interface IPuzzleTileProps {
 }
 
 export const SPuzzleTile = styled.button<{ value: number }>`
-  background-color: ${({ value }) => (value !== 0 ? "white" : "grey")};
+  background-color: ${({ value }) => (value !== 0 ? "#a2d9e8" : "#d3d3d3")};
   color: black;
   width: ${tile_size};
   height: ${tile_size};
@@ -16,9 +16,9 @@ export const SPuzzleTile = styled.button<{ value: number }>`
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  font-weight: 700;
-  border: ${({ value }) => (value !== 0 ? "2px solid black;" : "none")};
-  border-radius: 5px;
+  font-weight: 500;
+  border: ${({ value }) => (value !== 0 ? "1px solid black;" : "none")};
+  border-radius: 8px;
 `;
 
 export const PuzzleTile = ({ onClick, value }: IPuzzleTileProps) => {
