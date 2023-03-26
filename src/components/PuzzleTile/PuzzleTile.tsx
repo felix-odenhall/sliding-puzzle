@@ -19,6 +19,8 @@ export const SPuzzleTile = styled.button<{ value: number }>`
   font-weight: 500;
   border: ${({ value }) => (value !== 0 ? "1px solid black;" : "none")};
   border-radius: 8px;
+  pointer-events: ${({ value }) => (value !== 0 ? "auto" : "none")};
+  cursor: ${({ value }) => (value !== 0 ? "pointer" : "not-allowed")};
 `;
 
 export const PuzzleTile = ({ onClick, value }: IPuzzleTileProps) => {
