@@ -21,10 +21,9 @@ const SContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 80vh;
 `;
 
-const SHeadLine = styled.h1`
+const SHeadLine2 = styled.h2`
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
@@ -82,7 +81,7 @@ export const GameBoard = () => {
     <SContainer>
       {isSolved ? (
         <>
-          <SHeadLine>Congratulations! You've completed the puzzle!</SHeadLine>
+          <SHeadLine2>Congratulations! You've completed the puzzle!</SHeadLine2>
           <Button onClick={shuffleNewBoard} text="Restart" />
         </>
       ) : (
