@@ -30,19 +30,19 @@ To customize the puzzle board:
 
 ## Running tests:
 
-To run the tests, type `npm test` in your terminal. This will launch the test runner and execute all of the tests included in the test suite.
+To run the tests, type: `npm test` in your terminal. This will launch the test runner and execute all of the tests included in the test suite.
 
 ## Requirments:
 - [x] Responsive design.
 - [x] Tiles should be in numerical order from 1 and up.
 - [x] There should be exactly one empty space.
-- [ ] To move a tile, click on it. You can only move a tile if it is adjacent to the blank space, and you can only move a tile vertically or horizontally. Clicking on a tile will move it one step towards the empty space, along with any other tiles in the same row or column* .
+- [ ] To move a tile, click on it. You can only move a tile if it is adjacent to the blank space, and you can only move a tile vertically or horizontally. Clicking on a tile will move it one step towards the empty space, along with any other tiles in the same row or column*.
 - [x] All text should be in the Google font Open Sans.
 - [x] The initial order of the tiles should be randomized.
 - [x] There should be a button to shuffle the order.
 - [x] If the user solves the puzzle, it should be displayed on the screen in some suitable way.
 
-* **Note**: Currently, the implementation only allows **moving one tile at a time**, even if multiple tiles are in the same row or column as the empty space. Therefore, if the user clicks on a tile, only that tile will be moved, even if there are other tiles between it and the empty space.
+* **Note**: Currently, the implementation only allows **moving one tile at a time**, even if multiple tiles are in the same row or column as the empty space. Therefore, a user can only move a tile next to the blank space.
 
 ## Thoughts of improvments:
 - [ ] New design
