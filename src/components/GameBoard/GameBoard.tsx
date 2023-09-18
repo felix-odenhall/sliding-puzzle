@@ -63,10 +63,11 @@ export const GameBoard = () => {
     checkIfSolved(
       puzzleBoard,
       puzzleSolution(initialRows, initialColumns),
-      initialRows,
-      initialColumns
+      // initialRows,
+      // initialColumns
     ) && setIsSolved(true);
   };
+  
 
   const shuffleNewBoard = () => {
     setIsSolved(false);

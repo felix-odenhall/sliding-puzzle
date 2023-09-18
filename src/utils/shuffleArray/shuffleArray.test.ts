@@ -28,4 +28,10 @@ describe("ShuffleArray", () => {
     ].flat();
     expect(shuffledArr).toEqual(expect.arrayContaining(testArr));
   });
+  test("Should be shuffled", () => {
+    const shuffledArr = shuffleArray(createPuzzle(3, 3)).flat();
+    const testArr =
+    createPuzzle(3,3).flat()
+    expect(shuffledArr).not.toEqual(testArr);
+  });
 });
